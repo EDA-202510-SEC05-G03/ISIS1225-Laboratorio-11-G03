@@ -1,6 +1,6 @@
 from DataStructures.Map import map_linear_probing as map
 from DataStructures.Priority_queue import priority_queue as pq
-from DataStructures.Queue import queue as q
+
 
 
 def new_prim_structure(source, g_order):
