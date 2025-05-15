@@ -5,8 +5,11 @@ from DataStructures.Map import map_functions as mf
 
 __EMPTY__ = me.new_map_entry("__EMPTY__", "__EMPTY__")
 
-def new_map(num_elements, load_factor, prime=109345121):
-    capacity = mf.next_prime(int(num_elements / load_factor))
+def new_map(num_elements, load_factor = 0.5, prime=109345121):
+    initial = int(num_elements / load_factor)
+    if initial < 1:
+        initial = 1
+    capacity = mf.next_prime(initial)
     table = lt.new_list("ARRAY_LIST")
     for _ in range(capacity):
         lt.add_last(table, me.new_map_entry(None, None))

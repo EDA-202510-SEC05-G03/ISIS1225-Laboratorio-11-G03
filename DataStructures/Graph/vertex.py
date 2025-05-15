@@ -137,3 +137,29 @@ def degree(vertex):
     .. include:: code-examples/Graph/vertex/degree.rst
     """
     return mp.size(vertex["adjacents"])
+
+def new_edge(key_u, key_v, weight):
+    """
+    Crea una nueva arista dirigida desde key_u hasta key_v con un peso dado.
+
+    Parameters
+    ----------
+    key_u : any
+        Llave del vértice origen (se incluye por consistencia, pero no se almacena).
+    key_v : any
+        Llave del vértice destino.
+    weight : any
+        Peso asociado a la arista.
+
+    Returns
+    -------
+    dict
+        Diccionario con las claves:
+          - 'to': key_v
+          - 'weight': weight
+    """
+    return {
+        'from': key_u,
+        'to': key_v,
+        'weight': weight
+    }
