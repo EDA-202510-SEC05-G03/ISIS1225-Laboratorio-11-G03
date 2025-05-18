@@ -20,9 +20,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  """
 
-from DISClib.ADT import map as map
-from DISClib.ADT import list as lt
-from DISClib.Utils import error as error
+from DataStructures.Map import map_linear_probing as map
+from DataStructures.List import list as lt
+from DataStructures.Utils import error as error
 
 """
 Estructura que contiene la información de una cola de prioridad indexada,

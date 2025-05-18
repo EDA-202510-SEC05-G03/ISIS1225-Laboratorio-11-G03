@@ -24,8 +24,8 @@
  """
 
 
-import config
-from DISClib.DataStructures import indexheap as h
+from DataStructures.Utils import config as config
+from DataStructures.Priority_queue import indexheap as h
 assert config
 
 """

@@ -31,6 +31,7 @@
 from DataStructures.List import single_linked_list as lt
 from DataStructures.Map import map_linear_probing as m
 from DataStructures.Graph import digraph as G
+from DataStructures.Algorithms import dijsktra as d
 
 import csv
 import time
@@ -62,14 +63,6 @@ def init():
 
 
 def new_analyzer():
-    """ Inicializa el analizador
-
-   stops: Tabla de hash para guardar los vertices del grafo
-   connections: Grafo para representar las rutas entre estaciones
-   components: Almacena la informacion de los componentes conectados
-   paths: Estructura que almancena los caminos de costo minimo desde un
-           vertice determinado a todos los otros vértices del grafo
-    """
     try:
         analyzer = {
             'stops': None,
@@ -78,13 +71,14 @@ def new_analyzer():
             'paths': None
         }
 
-        analyzer['stops'] = m.new_map(
-            num_elements=14000, load_factor=0.7, prime=109345121)
+        analyzer['stops'] = m.new_map(num_elements=14000, load_factor=0.7, prime=109345121)
 
-        analyzer['connections'] = G.new_graph(size=14000)
+        analyzer['connections'] = G.new_graph(14000)
+
         return analyzer
     except Exception as exp:
-        return exp
+        raise exp 
+
 
 # ___________________________________________________
 #  Funciones para la carga de datos y almacenamiento
@@ -126,8 +120,7 @@ def set_station(analyzer, station):
         vertex = G.get_vertex(analyzer['connections'], station)
         if vertex is not None:
             
-            # TODO: Llame a la ejecucion de Dijkstra desde la estacion
-            # base para calcular los caminos de costo minimo
+            analyzer['paths'] = d.Dijkstra(analyzer['connections'], station)
             return True
         else:
             return False

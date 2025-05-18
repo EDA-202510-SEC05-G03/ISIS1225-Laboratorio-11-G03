@@ -23,29 +23,10 @@ def new_graph(order):
     }
     
 def insert_vertex(my_graph, key_u, info_u):
-    """
-    Agrega un nuevo vértice al grafo my_graph.
-
-    Se crea un nuevo vértice con la llave key_u y la información info_u.
-    Posteriormente, el vértice se agrega al mapa de vértices del grafo.
-
-    Parameters
-    ----------
-    my_graph : dict
-        Grafo al que se desea agregar el nuevo vértice.
-    key_u : any
-        Llave del nuevo vértice.
-    info_u : any
-        Información asociada al vértice.
-
-    Returns
-    -------
-    dict
-        El grafo con el nuevo vértice agregado.
-    """
-    # Inserta (o actualiza) la entrada en el mapa de vértices
-    map.put(my_graph['vertices'], key_u, info_u)
+    vertex = V.new_vertex(key_u, info_u)
+    map.put(my_graph['vertices'], key_u, vertex)
     return my_graph
+
 
 def update_vertex_info(my_graph, key_u, new_info_u):
     """
